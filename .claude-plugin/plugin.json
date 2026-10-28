@@ -1,0 +1,9 @@
+{
+  "name": "build-test-fix",
+  "displayName": "Build-Test-Fix agent team",
+  "version": "0.1.0",
+  "description": "A builder (Opus), tester (Sonnet) and fixer (Sonnet) that build features in parallel git worktrees, with a coordinator playbook that verifies the tests by planting bugs.",
+  "author": { "name": "Fernando Casarotti" },
+  "license": "MIT",
+  "keywords": ["subagents", "testing", "mutation-testing", "git-worktrees", "multi-agent", "workflow"]
+}

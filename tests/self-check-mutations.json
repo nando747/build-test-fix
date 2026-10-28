@@ -1,0 +1,13 @@
+[
+ {"label": "skip the red-baseline guard", "file": "skills/build-test-fix/scripts/plant_bugs.py",
+  "find": "        if baseline[0] != \"pass\":\n            return baseline, results",
+  "replace": "        if False:\n            return baseline, results"},
+ {"label": "accept any occurrence count", "file": "skills/build-test-fix/scripts/plant_bugs.py",
+  "find": "    if n != m[\"count\"]:", "replace": "    if n == 0:"},
+ {"label": "don't reset between mutations", "file": "skills/build-test-fix/scripts/plant_bugs.py",
+  "find": "            reset(scratch)\n            why = apply_mutation", "replace": "            why = apply_mutation"},
+ {"label": "opus price wrong", "file": "skills/build-test-fix/scripts/agent_ledger.py",
+  "find": "\"opus\": 5.6,", "replace": "\"opus\": 4.0,"},
+ {"label": "remove --all ignores the .worktrees/ filter", "file": "skills/build-test-fix/scripts/worktrees.py",
+  "find": "                   if root in Path(wt[\"path\"]).resolve().parents]", "replace": "                   ]"}
+]

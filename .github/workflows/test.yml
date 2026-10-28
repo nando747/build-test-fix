@@ -1,0 +1,30 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  scripts:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ["3.10", "3.13"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install pytest
+      - name: Unit tests for the helper scripts
+        run: python -m pytest tests -q
+      - name: Self-check - plant bugs in the scripts and make sure the tests catch them
+        if: matrix.os == 'ubuntu-latest' && matrix.python == '3.13'
+        run: |
+          git config --global user.name ci && git config --global user.email ci@example.com
+          python skills/build-test-fix/scripts/plant_bugs.py tests/self-check-mutations.json \
+            --test-cmd "python -m pytest tests -q -x"

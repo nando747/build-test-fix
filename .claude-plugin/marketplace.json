@@ -1,0 +1,14 @@
+{
+  "name": "build-test-fix",
+  "owner": { "name": "Fernando Casarotti" },
+  "description": "Build-Test-Fix: a three-agent team for Claude Code.",
+  "plugins": [
+    {
+      "name": "build-test-fix",
+      "source": "./",
+      "description": "Builder, tester and fixer subagents plus a coordinator skill with worktree, planted-bug and cost-ledger scripts.",
+      "version": "0.1.0",
+      "category": "development"
+    }
+  ]
+}
